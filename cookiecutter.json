@@ -19,6 +19,7 @@
     "black",
     "flake8",
     "pylint",
+    "yapf"
   ],
   "sphinx_theme": [
     "alabaster",
