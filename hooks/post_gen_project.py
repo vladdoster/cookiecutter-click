@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os
+import os, subprocess
 
 TERMINATOR = "\x1b[0m"
 SUCCESS = "\x1b[1;32m [SUCCESS]: "
@@ -14,6 +14,12 @@ def main():
     if linter == "pylint":
         remove_file(".flake8")
 
+
+    venv = "{{ cookiecutter.virtualenv }}".lower()
+    if venv == "pipenv":
+        subprocess.run(["pip3", "install", "pipenv"])
+    if venv == "virtualenv":
+        subprocess.run(["pip3", "install", "virtualenv"])
     print(f"{SUCCESS} Project initialized, keep up the good work!{TERMINATOR}")
 
 
